@@ -42,4 +42,23 @@ public class HumanBody extends Body {
 
         }
     }
+
+    @Override
+    protected BodyPartGroup getBodyPartGroup(BodyPart part) {
+        switch(part) {
+            case RIGHT_LEG:
+            case LEFT_LEG:
+            case STOMACH:
+            case HEAD:
+                return BodyPartGroup.D;
+            case LEFT_ARM:
+            case RIGHT_ARM:
+                return BodyPartGroup.C;
+            case CHEST:
+                return BodyPartGroup.F;
+            default:
+                return BodyPartGroup.NONE;
+
+        }
+    }
 }

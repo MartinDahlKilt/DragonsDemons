@@ -20,6 +20,7 @@ public class Actor {
         setStatus(Status.ACTIVE);
         mStats = stats;
         mBody = body;
+        mBody.setTotalHealth((mStats.get(Stats.Type.PHYSICS) + mStats.get(Stats.Type.SIZE))/2);
     }
 
     public int getNextInitiative() {
