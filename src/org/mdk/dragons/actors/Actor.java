@@ -2,8 +2,9 @@ package org.mdk.dragons.actors;
 
 import org.mdk.dragons.Dice;
 import org.mdk.dragons.weapons.Weapon;
+import org.mdk.dragons.world.Battlefield;
 
-public class Actor {
+public abstract class Actor {
     public enum Status {
         DEAD,
         UNCONSIOUS,
@@ -41,4 +42,8 @@ public class Actor {
     public Body.BodyPart getTargetBodypart(Weapon.AttackType type) {
         return mBody.getTargetBodyPart(type);
     }
+
+
+    public abstract Action getAction(Battlefield bf);
+
 }

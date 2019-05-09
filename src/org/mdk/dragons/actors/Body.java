@@ -66,7 +66,7 @@ public abstract class Body {
         }
     }
 
-    public void setTotalPaintPoints(int maxPainPoints) {
+    public void setTotalPainPoints(int maxPainPoints) {
         if(mMaxPainPoints == -1) {
             mMaxPainPoints = maxPainPoints;
             mCurrentPainPoints = mMaxPainPoints;
