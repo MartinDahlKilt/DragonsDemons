@@ -8,15 +8,14 @@ public class RandomHumanStats extends Stats {
     }
 
 
-    @Override
     public void roll() {
-        set(Type.STRENGTH, Dice.roll(3, 6));
-        set(Type.SIZE, Dice.roll(3, 6));
-        set(Type.PHYSICS, Dice.roll(3, 6));
-        set(Type.AGILITY, Dice.roll(3, 6));
-        set(Type.INTELLIGENCE, Dice.roll(3, 6));
-        set(Type.PSYCHE, Dice.roll(3, 6));
-        set(Type.CHARISMA, Dice.roll(3, 6));
+        set(Type.STRENGTH, Dice.roll(3, 6, 0));
+        set(Type.SIZE, Dice.roll(3, 6, 0));
+        set(Type.PHYSIQUE, Dice.roll(3, 6, 0));
+        set(Type.AGILITY, Dice.roll(3, 6, 0));
+        set(Type.INTELLIGENCE, Dice.roll(3, 6, 0));
+        set(Type.PSYCHE, Dice.roll(3, 6, 0));
+        set(Type.CHARISMA, Dice.roll(3, 6, 0));
         rollSwordHand();
     }
 

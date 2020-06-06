@@ -1,10 +1,10 @@
 package org.mdk.dragons.actors;
 
-public abstract class Stats {
+public class Stats {
     public enum Type {
         STRENGTH,
         SIZE,
-        PHYSICS,
+        PHYSIQUE,
         AGILITY,
         INTELLIGENCE,
         PSYCHE,
@@ -28,24 +28,31 @@ public abstract class Stats {
     protected SWORD_HAND mSwordHand;
 
 
-    public abstract void roll();
+    //public abstract void roll();
 
-    protected void set(Type type, int val) {
+    public void set(Type type, int val) {
         switch (type) {
             case STRENGTH:
                 mStrength = val;
+                break;
             case SIZE:
                 mSize = val;
-            case PHYSICS:
+                break;
+            case PHYSIQUE:
                 mPhysics = val;
+                break;
             case AGILITY:
                 mAgility = val;
+                break;
             case INTELLIGENCE:
                 mIntelligence = val;
+                break;
             case PSYCHE:
                 mPsyche = val;
+                break;
             case CHARISMA:
                 mCharisma = val;
+                break;
         }
     }
 
@@ -55,7 +62,7 @@ public abstract class Stats {
                 return mStrength;
             case SIZE:
                 return mSize;
-            case PHYSICS:
+            case PHYSIQUE:
                 return mPhysics;
             case AGILITY:
                 return mAgility;
@@ -92,5 +99,9 @@ public abstract class Stats {
         } else {
             return 9; // TODO Handle values larger then 50
         }
+    }
+
+    public SWORD_HAND getSwordHand() {
+        return mSwordHand;
     }
 }

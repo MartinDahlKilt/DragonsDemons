@@ -4,16 +4,25 @@ public class Action {
     public enum Type {
         NOTHING,
         MOVE,
-        MAGICK_ATTACK,
+        MAGIC_PREPARE,
+        MAGIC_ATTACK,
+        CHANGE_WEAPON,
         RANGE_ATTACK,
-        CLOSE_COMBAT_ATTACK
+        MELEE_ATTACK,
+        MELEE_PARRY,
+        USE_ITEM,
     }
 
     private Type mType;
     private Actor mSource;
     private Actor mTarget;
-    private int mCount;
+    //private int mCount;
 
+    public Action(Actor source, Actor target, Type type) {
+        mSource = source;
+        mTarget = target;
+        mType = type;
+    }
 
     public Type getType() {
         return mType;
@@ -27,7 +36,7 @@ public class Action {
         return mTarget;
     }
 
-    public int getActionCount() {
+    /*public int getActionCount() {
         return mCount;
-    }
+    }*/
 }

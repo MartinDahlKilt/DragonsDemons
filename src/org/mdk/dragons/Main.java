@@ -1,21 +1,20 @@
 package org.mdk.dragons;
 
-import org.mdk.dragons.actors.Actor;
-import org.mdk.dragons.actors.Body;
-import org.mdk.dragons.actors.HumanBody;
-import org.mdk.dragons.actors.RandomHumanStats;
-import org.mdk.dragons.formations.Solo;
-import org.mdk.dragons.simulation.Runner;
+import org.mdk.dragons.simulation.Combat;
+import org.mdk.dragons.world.XmlParser;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Runner simulation = new Runner();
-        for(int idx = 0; idx < 2; idx++) {
-            simulation.addFormation(new Solo(new Actor(new RandomHumanStats(), new HumanBody())));
+        /*Duel duel = new Duel();
+        duel.registerActor("A", new SimpleHuman());
+        duel.registerActor("B", new SimpleHuman());
+        duel.run(); */
+        XmlParser p = new XmlParser();
+        Combat c = p.parse("engagement.xml");
+        if(c!=null) {
+            c.run();
         }
-        // Create Weapons, Equipment, Behaviour
-        simulation.run();
     }
 }

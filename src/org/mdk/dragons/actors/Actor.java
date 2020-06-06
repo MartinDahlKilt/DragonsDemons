@@ -1,35 +1,48 @@
 package org.mdk.dragons.actors;
 
 import org.mdk.dragons.Dice;
+import org.mdk.dragons.skills.Equipment;
+import org.mdk.dragons.skills.Skills;
 import org.mdk.dragons.weapons.Weapon;
 import org.mdk.dragons.world.Battlefield;
+
+import java.util.List;
 
 public abstract class Actor {
     public enum Status {
         DEAD,
-        UNCONSIOUS,
-        ACTIVE
+        UNCONSCIOUS,
+        CONSCIOUS
     }
 
-    private Status mStatus;
-    private Stats mStats;
-    private Body mBody;
+    protected String mName;
 
-    private int mCurrentInitiative = 0;
+    protected Status mStatus;
+    protected Stats mStats;
+    protected Body mBody;
+    protected Skills mSkills;
+    protected Equipment mEquipment;
 
-    public Actor(Stats stats, Body body) {
-        setStatus(Status.ACTIVE);
-        mStats = stats;
+    public Actor(Body body) {
+        setStatus(Status.CONSCIOUS);
         mBody = body;
-        mBody.setTotalHealth((mStats.get(Stats.Type.PHYSICS) + mStats.get(Stats.Type.SIZE))/2);
     }
 
-    public int getNextInitiative() {
-        mCurrentInitiative = Dice.roll(10) + mStats.get(Stats.Type.AGILITY);
-        return mCurrentInitiative;
+    public void setStats(Stats stats) {
+        mStats = stats;
+        mBody.setTotalHealth((mStats.get(Stats.Type.PHYSIQUE) + mStats.get(Stats.Type.SIZE))/2);
     }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
     public int getInitiative() {
-        return mCurrentInitiative;
+        return  Dice.roll(10) + mStats.get(Stats.Type.AGILITY);
     }
 
     public void setStatus(Status status) {
@@ -44,6 +57,11 @@ public abstract class Actor {
     }
 
 
-    public abstract Action getAction(Battlefield bf);
+    public abstract List<Action> getActions(Battlefield bf);
+    protected abstract int getNumberOfActions();
+
+    protected boolean hasActionCapability(Action.Type type) {
+        return mSkills.hasSkillType(type) && mEquipment.hasSkillTypeItem(type);
+    }
 
 }

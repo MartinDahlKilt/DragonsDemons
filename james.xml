@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<actor>
+	<name>James</name>
+	<class>Human</class>
+	<stats>
+		<stat>
+			<name>Strength</name>
+			<value>18</value>
+		</stat>
+		<stat>
+			<name>Size</name>
+			<value>3d6</value>
+		</stat>
+		<stat>
+			<name>PHYSIQUE</name>
+			<value>3d6</value>
+		</stat>
+		<stat>
+			<name>Agility</name>
+			<value>3d6</value>
+		</stat>
+		<stat>
+			<name>Intelligence</name>
+			<value>3d6</value>
+		</stat>
+		<stat>
+			<name>Psyche</name>
+			<value>3d6</value>
+		</stat>
+		<stat>
+			<name>Charisma</name>
+			<value>3d6</value>
+		</stat>
+	</stats>
+	<skills>
+		<skill>
+			<name>DAGGER</name>
+			<level>10</level>
+			<type>MELEE</type>
+		</skill>
+		<skill>
+			<name>SHORT SWORD</name>
+			<level>11</level>
+			<type>MELEE</type>
+		</skill>
+		<skill>
+			<name>SHORT BOW</name>
+			<level>10</level>
+			<type>RANGE</type>
+		</skill>		
+	</skills>
+	<items>
+		<item>
+			<name>My Enchanted short sword</name>
+			<skill>SHORT SWORD</skill>
+			<damage>1D6+2</damage>
+			<range>1</range>
+		</item>
+		<item>
+			<name>Old short bow</name>
+			<skill>SHORT BOW</skill>
+			<damage>1D6</damage>
+			<range>10</range>
+		</item>
+	</items>
+</actor>

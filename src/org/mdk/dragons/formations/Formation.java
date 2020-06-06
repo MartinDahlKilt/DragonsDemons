@@ -18,7 +18,7 @@ public abstract class Formation {
 
     public boolean isActive() {
         for(Actor a : mActors) {
-            if(a.getStatus() == Actor.Status.ACTIVE) {
+            if(a.getStatus() == Actor.Status.CONSCIOUS) {
                 return true;
             }
         }

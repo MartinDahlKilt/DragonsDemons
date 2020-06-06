@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<engagement xmlns:xi="http://www.w3.org/2001/XInclude">
+	<class>Duel</class>
+	<teams>
+		<team>
+			<name>Left</name>
+			<actors>
+				<xi:include href="james.xml" />
+			</actors>
+		</team>
+		<team>
+			<name>Right</name>
+			<actors>
+				<xi:include href="james.xml" />
+			</actors>
+		</team>
+	</teams>
+</engagement>
