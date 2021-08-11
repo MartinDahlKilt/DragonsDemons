@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://mdk.dk/DragonsDemons"
+           xmlns="http://mdk.dk/DragonsDemons"
+           elementFormDefault="qualified">
+
+    <xs:include schemaLocation="types/skill.xsd" />
+
+    <xs:element name="skill">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="SkillType" />
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="description" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

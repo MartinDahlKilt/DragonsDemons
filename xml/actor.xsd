@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://mdk.dk/DragonsDemons"
+           xmlns="http://mdk.dk/DragonsDemons"
+           elementFormDefault="qualified">
+    <xs:include schemaLocation="types/skill.xsd" />
+    <xs:include schemaLocation="types/value.xsd" />
+
+    <xs:simpleType name="ActorType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="human" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="actor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+
+                <!-- Base statistics -->
+                <xs:element name="stats" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="strength" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="size" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="physique" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="agility" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="intelligence" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="psyche" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="charisma" maxOccurs="1" minOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="value" type="value" maxOccurs="1" minOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Skills -->
+                <xs:element name="skills" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Standard Skills -->
+                            <xs:element name="standard" minOccurs="0" maxOccurs="unbounded" >
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="level" type="xs:positiveInteger" />
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="SkillStandard" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Weapon Skills -->
+                            <xs:element name="weapon" minOccurs="0" maxOccurs="unbounded" >
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="level" type="xs:positiveInteger" />
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="SkillWeapon" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Hero Skills -->
+                            <xs:element name="hero" minOccurs="0" maxOccurs="unbounded" >
+                                <xs:complexType>
+                                    <xs:attribute name="class" type="SkillHero" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Magic Skills -->
+                            <xs:element name="magic" minOccurs="0" maxOccurs="unbounded" >
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="level" type="xs:positiveInteger" />
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="SkillMagic" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Items -->
+                <xs:element name="items" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Normal Items -->
+                            <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string" maxOccurs="1"/>
+                                        <xs:element name="description" type="xs:string" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Weapon Items -->
+                            <xs:element name="weapon" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string" maxOccurs="1"/>
+                                        <xs:element name="damage" type="value" maxOccurs="1"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="SkillWeapon" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Magic Items -->
+                            <xs:element name="magic" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string" maxOccurs="1"/>
+                                        <xs:element name="charges" type="xs:positiveInteger" maxOccurs="1"/>
+                                        <xs:element name="spell" type="SkillMagic" maxOccurs="1"/>
+                                        <xs:element name="power" type="xs:positiveInteger" maxOccurs="1"/>
+                                        <xs:element name="channel" type="SkillMagicChannel" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="class" type="ActorType" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

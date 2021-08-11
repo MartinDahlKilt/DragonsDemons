@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://mdk.dk/DragonsDemons"
+           xmlns="http://mdk.dk/DragonsDemons"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="SkillType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="standard" />
+            <xs:enumeration value="weapon" />
+            <xs:enumeration value="magic" />
+            <xs:enumeration value="hero" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <xs:simpleType name="SkillStandard">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="detect danger" />
+            <xs:enumeration value="find hidden items" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SkillHero">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fast draw" />
+            <xs:enumeration value="detect danger" />
+            <xs:enumeration value="cats paw" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SkillWeapon">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dagger" />
+            <xs:enumeration value="short sword" />
+            <xs:enumeration value="long sword" />
+            <xs:enumeration value="broad sword" />
+            <xs:enumeration value="short bow" />
+            <xs:enumeration value="long bow" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SkillMagic">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fireball" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SkillMagicChannel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="personal" />
+            <xs:enumeration value="permanent" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

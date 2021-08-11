@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<actor xmlns="http://mdk.dk/DragonsDemons"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://mdk.dk/DragonsDemons actor.xsd"
+       class="human">
+    <name>James</name>
+    <stats>
+        <strength>
+            <value>3d6+2</value>
+        </strength>
+        <size>
+            <value>3d6</value>
+        </size>
+        <physique>
+            <value>3d6</value>
+        </physique>
+        <agility>
+            <value>3d6</value>
+        </agility>
+        <intelligence>
+            <value>3d6</value>
+        </intelligence>
+        <psyche>
+            <value>3d6</value>
+        </psyche>
+        <charisma>
+            <value>3d6</value>
+        </charisma>
+    </stats>
+
+    <skills>
+        <standard class="detect danger">
+            <level>15</level>
+        </standard>
+        <weapon class="short sword">
+            <level>15</level>
+        </weapon>
+        <hero class="cats paw"/>
+        <magic class="fire ball">
+            <level>10</level>
+        </magic>
+    </skills>
+    
+    <items>
+        <item>
+            <name>rope</name>
+            <description>Used for climbing</description>
+        </item>
+        <weapon class="short sword">
+            <name>Trusty old sword</name>
+            <damage>1d6+1</damage>
+        </weapon>
+        <magic>
+            <name>Magic Wand</name>
+            <charges>10</charges>
+            <spell>fire ball</spell>
+            <power>2</power>
+            <channel>personal</channel>
+        </magic>
+    </items>
+</actor>

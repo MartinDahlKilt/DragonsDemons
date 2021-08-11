@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://mdk.dk/DragonsDemons"
+           xmlns="http://mdk.dk/DragonsDemons"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="value">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]+d[0-9]+(\+[0-9]+)?)|([0-9]+)" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
